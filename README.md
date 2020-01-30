@@ -1,5 +1,13 @@
 # Docker Laravel
 
+## Features
+
+- One process one container
+- MySQL ready
+- Enabled Laravel Queue
+- Enabled Laravel Task Scheduling
+- Alternative Artisan commands that can be injected into PHP container
+
 ## Setup
 
 Install Laravel
@@ -18,4 +26,18 @@ docker-compose up
 
 ```sh
 docker-compose down
+```
+
+## Alternative Artisan Command
+
+```sh
+cd ./laravel/
+composer artisan COMMAND
+```
+
+With options
+
+```sh
+cd ./laravel/
+composer artisan COMMAND -- --OPTION_NAME OPTION_VALUE
 ```
