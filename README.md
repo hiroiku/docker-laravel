@@ -4,6 +4,7 @@
 
 - One process one container
 - MySQL ready
+- PHP session using memcached
 - Enabled Laravel Queue
 - Enabled Laravel Task Scheduling
 - Alternative Artisan commands that can be injected into PHP container
