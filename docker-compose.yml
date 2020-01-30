@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+  nginx:
+    build: ./containers/nginx
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - php
+    volumes:
+      - ./laravel/:/var/www/
+
+  php:
+    build: ./containers/php/
+    depends_on:
+      - mysql
+    volumes:
+      - ./laravel/:/var/www/
+    env_file:
+      - ./laravel.env
+
+  php-worker:
+    build: ./containers/php-worker/
+    depends_on:
+      - mysql
+    volumes:
+      - ./laravel/:/var/www/
+    env_file:
+      - ./laravel.env
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - ./laravel/:/var/www/
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+
+  memcached:
+    image: memcached:latest

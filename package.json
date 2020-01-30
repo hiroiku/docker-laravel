@@ -1,0 +1,15 @@
+{
+  "name": "whotube",
+  "version": "1.0.0",
+  "description": "## Start Docker Containers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Hiroiku Inoue",
+  "license": "ISC",
+  "gitHooks": {
+    "pre-commit": "cd vue && ./node_modules/.bin/lint-staged"
+  }
+}
